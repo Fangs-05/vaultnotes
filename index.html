@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VaultNotes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<input id="imp" type="file" accept=".json" hidden>
+
+<section id="lock" class="center">
+  <form id="lockForm" class="panel">
+    <h1>VaultNotes</h1>
+    <p id="lockMsg" class="muted"></p>
+    <input id="pw" type="password" placeholder="Master password" autocomplete="off" required>
+    <input id="pw2" type="password" placeholder="Confirm master password" autocomplete="off" hidden>
+    <div id="meter" hidden><i></i></div>
+    <button class="primary" id="lockBtn">Unlock</button>
+    <p id="err" class="err" role="alert"></p>
+    <label for="imp" class="muted linkish">Restore from a backup file</label>
+  </form>
+</section>
+
+<div id="app" hidden>
+  <header>
+    <strong class="brand">VaultNotes</strong>
+    <span id="ring" title="Auto-lock countdown"><b id="timer"></b></span>
+    <nav>
+      <button id="theme">Theme</button>
+      <button id="exp">Export backup</button>
+      <label for="imp" class="btn">Import</label>
+      <button id="wipe">Erase vault</button>
+      <button id="lockNow" class="primary">Lock</button>
+    </nav>
+  </header>
+  <main>
+    <aside>
+      <figure id="quote"><blockquote id="qt">Loading today's quote…</blockquote><figcaption id="qa"></figcaption></figure>
+      <input id="search" type="search" placeholder="Search notes">
+      <div id="tags"></div>
+      <button id="newNote" class="primary">New note</button>
+      <ul id="list"></ul>
+    </aside>
+    <section id="editor">
+      <p id="empty" class="muted">Pick a note or create a new one.</p>
+      <div id="edit" hidden>
+        <input id="title" placeholder="Title" class="ttl">
+        <div class="row">
+          <input id="tag" placeholder="tag (optional)">
+          <button id="pin">Pin</button>
+          <button id="gen">Insert password</button>
+          <button id="del">Delete</button>
+        </div>
+        <textarea id="body" placeholder="Write something private…"></textarea>
+        <footer><span id="count"></span><span id="saved"></span></footer>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="crypto.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
